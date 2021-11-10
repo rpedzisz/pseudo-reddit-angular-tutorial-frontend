@@ -10,7 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './auth/login/login.component';
 import {NgxWebstorageModule} from "ngx-webstorage";
 import { ToastrModule } from 'ngx-toastr';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { HomeComponent } from './home/home.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
 @NgModule({
   declarations: [
@@ -18,7 +20,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
     HeaderComponent,
     SignupComponent,
     LoginComponent,
-    BrowserAnimationsModule,
+    HomeComponent,
+
+    
+    
     
     
   ],
@@ -29,7 +34,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
     ReactiveFormsModule,
     HttpClientModule,
     NgxWebstorageModule.forRoot(),
-    ToastrModule.forRoot()
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    FontAwesomeModule
+
 
   ],
   providers: [],

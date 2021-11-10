@@ -35,6 +35,38 @@ signup(signupRequestPayload: SignupRequestPayload): Observable<any>{
   return this.httpClient.post('http://localhost:8080/api/auth/signup', signupRequestPayload, {responseType: 'text'})
 }
 
+getJwtToken(){
+  return this.localStorage.retrieve('authenticationToken')
+}
+
+refreshToken(){
+const refreshTokenPayload = {
+  refreshToken: this.getRefreshToken(),
+  username: this.getUserName()
+}
+
+return this.httpClient.post<LoginResponse>('http://localhost:8080/api/refresh/token', refreshTokenPayload)
+.pipe(tap(response => {
+  this.localStorage.store('authenticationToken', response.authenticationToken);
+  this.localStorage.store('expiresAt', response['expiresAt'])
+
+
+}));
+
+
+
+}
+
+
+getRefreshToken()
+{
+  return this.localStorage.retrieve('refreshToken')
+}
+
+getUserName()
+{
+  return this.localStorage.retrieve('username')
+}
 
 
 
