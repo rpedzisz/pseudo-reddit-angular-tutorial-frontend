@@ -14,10 +14,10 @@ export class SideBarComponent implements OnInit {
   }
 
   goToCreateSubreddit(){
-    this.router.navigateByUrl('/create-post')
+    this.router.navigateByUrl('/create-subreddit')
   }
   goToCreatePost(){
-this.router.navigateByUrl('/create-subreddit')
+this.router.navigateByUrl('/create-post')
   }
 
 }
